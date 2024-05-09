@@ -22,7 +22,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 		super('pico-playable');
 	}
 
-	function onCreate(event:ScriptEvent) {
+	override function onCreate(event:ScriptEvent) {
 		super.onCreate(event);
 
 		// NOTE: this.x and this.y are not properly set here.
