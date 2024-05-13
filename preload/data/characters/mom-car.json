@@ -4,7 +4,11 @@
   "assetPath": "characters/momCar",
   "singTime": 8.0,
   "healthIcon": {
-    "id": "mom"
+    "id": "mom",
+    "color": "#D8558E"
+  },
+  "pixelIcon": {
+    "id": "mommy"
   },
   "cameraOffsets": [0, -100],
   "animations": [

@@ -3,6 +3,10 @@
   "name": "Pico (Blazin')",
   "assetPath": "characters/picoBlazin",
   "healthIcon": {
+    "id": "pico",
+    "color": "#B7D855"
+  },
+  "pixelIcon": {
     "id": "pico"
   },
   "flipX": true,

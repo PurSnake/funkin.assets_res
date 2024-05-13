@@ -6,6 +6,14 @@
   "renderType": "packer",
   "isPixel": true,
   "scale": 6,
+  "healthIcon": {
+    "id": "spirit",
+    "color": "#FF3C6E",
+    "isPixel": true
+  },
+  "pixelIcon": {
+    "id": "spirit"
+  },
   "animations": [
     {
       "name": "idle",

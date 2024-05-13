@@ -4,6 +4,13 @@
   "assetPath": "characters/gfCar",
   "startingAnimation": "danceRight",
   "cameraOffsets": [0, -200],
+  "healthIcon": {
+    "id": "gf",
+    "color": "#A5004D"
+  },
+  "pixelIcon": {
+    "id": "gf"
+  },
   "animations": [
     {
       "name": "danceLeft",

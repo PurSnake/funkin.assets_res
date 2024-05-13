@@ -4,7 +4,11 @@
   "assetPath": "characters/Pico_Basic",
   "healthIcon": {
     "id": "pico",
+    "color": "#B7D855",
     "flipX": false
+  },
+  "pixelIcon": {
+    "id": "pico"
   },
   "death": {
     "cameraOffsets": [10, -40],

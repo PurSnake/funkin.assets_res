@@ -5,6 +5,13 @@
   "assetPath": "characters/BOYFRIEND",
   "flipX": true,
   "singTime": 8.0,
+  "healthIcon": {
+    "id": "bf",
+    "color": "#31B0D1"
+  },
+  "pixelIcon": {
+    "id": "bf"
+  },
   "animations": [
     {
       "name": "idle",

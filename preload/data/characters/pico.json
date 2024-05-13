@@ -3,6 +3,13 @@
   "name": "Pico",
   "assetPath": "characters/Pico_Basic",
   "flipX": true,
+  "healthIcon": {
+    "id": "pico",
+    "color": "#B7D855"
+  },
+  "pixelIcon": {
+    "id": "pico"
+  },
   "animations": [
     {
       "name": "idle",

@@ -3,6 +3,10 @@
   "name": "Monster (Christmas)",
   "assetPath": "characters/monsterChristmas",
   "healthIcon": {
+    "id": "monster",
+    "color": "#F3FF6E"
+  },
+  "pixelIcon": {
     "id": "monster"
   },
   "animations": [

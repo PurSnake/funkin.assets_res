@@ -5,6 +5,10 @@
   "flipX": true,
   "renderType": "multisparrow",
   "healthIcon": {
+    "id": "bf",
+    "color": "#31B0D1"
+  },
+  "pixelIcon": {
     "id": "bf"
   },
   "animations": [

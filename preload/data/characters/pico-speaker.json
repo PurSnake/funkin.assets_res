@@ -5,6 +5,14 @@
   "startingAnimation": "idle",
   "singTime": 8.0,
   "offsets": [125, 0],
+  "healthIcon": {
+    "id": "pico",
+    "color": "#B7D855",
+    "flipX": false
+  },
+  "pixelIcon": {
+    "id": "pico"
+  },
   "animations": [
     {
       "name": "idle",

@@ -3,6 +3,13 @@
   "name": "Girlfriend (Christmas)",
   "assetPath": "characters/gfChristmas",
   "startingAnimation": "danceLeft",
+  "healthIcon": {
+    "id": "gf",
+    "color": "#A5004D"
+  },
+  "pixelIcon": {
+    "id": "gf"
+  },
   "animations": [
     {
       "name": "danceLeft",

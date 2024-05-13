@@ -3,6 +3,13 @@
   "name": "Daddy Dearest",
   "assetPath": "characters/daddyDearest",
   "singTime": 8.0,
+  "healthIcon": {
+    "id": "dad",
+    "color": "#AF66CE"
+  },
+  "pixelIcon": {
+    "id": "daddy"
+  },
   "animations": [
     {
       "name": "idle",

@@ -16,7 +16,11 @@
     "id": "tankman",
     "flipX": false,
     "isPixel": false,
+    "color": "#E1E1E1",
     "scale": 1
+  },
+  "pixelIcon": {
+    "id": "tankman"
   },
   "animations": [
     {

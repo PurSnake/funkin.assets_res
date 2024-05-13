@@ -2,6 +2,13 @@
   "version": "1.0.0",
   "name": "Monster",
   "assetPath": "characters/Monster_Assets",
+  "healthIcon": {
+    "id": "monster",
+    "color": "#F3FF6E"
+  },
+  "pixelIcon": {
+    "id": "monster"
+  },
   "animations": [
     {
       "name": "idle",

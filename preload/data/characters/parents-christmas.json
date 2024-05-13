@@ -2,6 +2,15 @@
   "version": "1.0.0",
   "name": "Mommy and Daddy (Festive)",
   "assetPath": "characters/mom_dad_christmas_assets",
+  "healthIcon": {
+    "id": "parents",
+    "color": "#D257A7"
+
+  },
+  "pixelIcon": {
+    "id": "parents-christmas",
+    "originOffsets": [50, 0]
+  },
   "animations": [
     {
       "name": "idle",

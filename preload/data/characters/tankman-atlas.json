@@ -7,6 +7,17 @@
   "singTime": 8.0,
   "offsets": [200, -550],
   "cameraOffsets": [200, 500],
+  "healthIcon": {
+    "offsets": [0, 0],
+    "id": "tankman",
+    "flipX": false,
+    "isPixel": false,
+    "color": "#E1E1E1",
+    "scale": 1
+  },
+  "pixelIcon": {
+    "id": "tankman"
+  },
   "animations": [
     {
       "name": "idle",

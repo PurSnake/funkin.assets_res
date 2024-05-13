@@ -3,6 +3,10 @@
   "name": "Darnell (Blazin')",
   "assetPath": "characters/darnellBlazin",
   "healthIcon": {
+    "id": "darnell",
+    "color": "#735EB0"
+  },
+  "pixelIcon": {
     "id": "darnell"
   },
   "renderType": "animateatlas",

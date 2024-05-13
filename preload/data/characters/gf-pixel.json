@@ -5,6 +5,13 @@
   "startingAnimation": "danceRight",
   "isPixel": true,
   "scale": 6,
+  "healthIcon": {
+    "id": "gf",
+    "color": "#A5004D"
+  },
+  "pixelIcon": {
+    "id": "gf"
+  },
   "animations": [
     {
       "name": "danceLeft",

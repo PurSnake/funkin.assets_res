@@ -4,6 +4,13 @@
   "assetPath": "characters/GF_assets",
   "startingAnimation": "danceRight",
   "singTime": 8.0,
+  "healthIcon": {
+    "id": "gf",
+    "color": "#A5004D"
+  },
+  "pixelIcon": {
+    "id": "gf"
+  },
   "animations": [
     {
       "name": "danceLeft",
