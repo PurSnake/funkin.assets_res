@@ -64,16 +64,16 @@ class TwoHOTSong extends Song
 
 	public override function onSongEnd(event:CountdownScriptEvent):Void {
 		super.onSongEnd(event);
-    if (!PlayStatePlaylist.isStoryMode) hasPlayedCutscene = true;
+		if (!PlayStatePlaylist.isStoryMode) hasPlayedCutscene = true;
 
-    if (!hasPlayedCutscene) {
-      hasPlayedCutscene = true;
+		if (!hasPlayedCutscene) {
+			hasPlayedCutscene = true;
 
-      event.cancel();
+			event.cancel();
 
 			// start the video cutscene and hide it so the other stuff can happen after
-      startCutscene();
-    } else {
+			startCutscene();
+		} else {
 			// Make sure the cutscene can play again next time!
 			hasPlayedCutscene = false;
 			// DO NOT CANCEL THE EVENT!
@@ -143,7 +143,7 @@ class TwoHOTSong extends Song
 
 	function startVideo() {
 		VideoCutscene.play(Paths.videos('2hotCutscene'), CutsceneType.ENDING);
-  }
+	}
 
 	function removeCans()
 	{
@@ -177,7 +177,7 @@ class TwoHOTSong extends Song
 	function onNoteHit(event:HitNoteScriptEvent)
 	{
 		super.onNoteHit(event);
-    if (PlayState.instance.currentStage == null) return;
+		if (PlayState.instance.currentStage == null) return;
 
 		switch (event.note.kind)
 		{
@@ -400,12 +400,12 @@ class TwoHOTSong extends Song
 	}
 
 	/**
-   * Replay the cutscene after leaving the song.
-   */
-  function onCreate(event:ScriptEvent):Void
-  {
-    super.onCreate(event);
+	 * Replay the cutscene after leaving the song.
+	 */
+	function onCreate(event:ScriptEvent):Void
+	{
+		super.onCreate(event);
 
-    hasPlayedCutscene = false;
-  }
+		hasPlayedCutscene = false;
+	}
 }
