@@ -24,7 +24,7 @@
     {
       "name": "singDOWN",
       "prefix": "Pico Down Note0",
-      "offsets": [-70, -75]
+      "offsets": [-20, -75]
     },
     {
       "name": "singUP",

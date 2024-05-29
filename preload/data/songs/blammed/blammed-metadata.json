@@ -5,7 +5,7 @@
     "album": "volume1",
     "stage": "phillyTrain",
     "characters": { "player": "bf", "girlfriend": "gf", "opponent": "pico" },
-    "songVariations": ["erect"],
+    "songVariations": ["erect", "B-sides"],
     "difficulties": ["easy", "normal", "hard"],
     "noteStyle": "funkin"
   },

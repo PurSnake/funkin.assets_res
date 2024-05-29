@@ -10,85 +10,83 @@ import flixel.FlxG;
 import flixel.FlxSprite;
 
 class SenpaiSong extends Song {
-  var hasPlayedCutscene:Bool;
+	var hasPlayedCutscene:Bool;
 
 	public function new() {
 		super('senpai');
 	}
 
-  public override function onCountdownStart(event:CountdownScriptEvent):Void {
+	public override function onCountdownStart(event:CountdownScriptEvent):Void {
 		super.onCountdownStart(event);
 
-    if (!PlayStatePlaylist.isStoryMode) hasPlayedCutscene = true;
+		if (!PlayStatePlaylist.isStoryMode) hasPlayedCutscene = true;
 
-    if (!hasPlayedCutscene) {
-      trace('Pausing countdown to play cutscene.');
+		if (!hasPlayedCutscene) {
+			trace('Pausing countdown to play cutscene.');
 
-      hasPlayedCutscene = true;
+			hasPlayedCutscene = true;
 
-      event.cancel(); // CANCEL THE COUNTDOWN!
+			event.cancel(); // CANCEL THE COUNTDOWN!
 
-      PlayState.instance.currentStage.pause();
+			PlayState.instance.currentStage.pause();
 
-      transitionToDialogue();
-    }
+			transitionToDialogue();
+		}
 	}
 
-  function transitionToDialogue() {
-    trace('Transitioning to dialogue.');
+	function transitionToDialogue() {
+		trace('Transitioning to dialogue.');
 
-    PlayState.instance.camCutscene.visible = true;
+		var black:FlxSprite = new FunkinSprite(-20, -20).makeSolidColor(FlxG.width * 1.5, FlxG.height * 1.5, 0xFF000000);
+		black.cameras = [PlayState.instance.camOther];
+		black.zIndex = 1000000;
+		PlayState.instance.add(black);
 
-    var black:FlxSprite = new FunkinSprite(-20, -20).makeSolidColor(FlxG.width * 1.5, FlxG.height * 1.5, 0xFF000000);
-    black.cameras = [PlayState.instance.camCutscene];
-    black.zIndex = 1000000;
-    PlayState.instance.add(black);
+		black.alpha = 1.0;
 
-    black.alpha = 1.0;
+		var tweenFunction = function(x) {
+			var xSnapped = Math.floor(x * 8) / 8;
+			black.alpha = 1.0 - xSnapped;
+		};
 
-    var tweenFunction = function(x) {
-      var xSnapped = Math.floor(x * 8) / 8;
-      black.alpha = 1.0 - xSnapped;
-    };
+		FlxTween.num(0.0, 1.0, 2.0, {
+			ease: FlxEase.linear,
+			startDelay: 0.25,
+			onComplete: function (input) {
 
-    FlxTween.num(0.0, 1.0, 2.0, {
-      ease: FlxEase.linear,
-      startDelay: 0.25,
-      onComplete: function (input) {
+				// black.visible = false;
+				startDialogue();
+			}
+		}, tweenFunction);
+	}
 
-        // black.visible = false;
-        startDialogue();
-      }
-    }, tweenFunction);
-  }
+	function startDialogue() {
+		PlayState.instance.startConversation('senpai');
+	}
 
-  function startDialogue() {
-    PlayState.instance.startConversation('senpai');
-  }
+	/**
+	 * Don't replay the cutscene between restarts.
+	 */
+	function onSongRetry(event:ScriptEvent)
+	{
+		super.onSongRetry(event);
 
-  /**
-   * Don't replay the cutscene between restarts.
-   */
-  function onSongRetry(event:ScriptEvent)
-  {
-    super.onSongRetry(event);
+		hasPlayedCutscene = true;
+	}
 
-    hasPlayedCutscene = true;
-  }
+	/**
+	 * Replay the cutscene after leaving the song.
+	 */
+	function onCreate(event:ScriptEvent):Void
+	{
+		super.onCreate(event);
 
-  /**
-   * Replay the cutscene after leaving the song.
-   */
-  function onCreate(event:ScriptEvent):Void
-  {
-    super.onCreate(event);
+		hasPlayedCutscene = false;
+	}
 
-    hasPlayedCutscene = false;
-  }
-
-  public override function onDialogueEnd() {
-    // We may need to wait for the outro to play.
-    PlayState.instance.currentStage.resume();
-    Countdown.performCountdown();
-  }
+	public override function onDialogueEnd() {
+		// We may need to wait for the outro to play.
+		PlayState.instance.currentStage.resume();
+		Countdown.performCountdown();
+	}
 }

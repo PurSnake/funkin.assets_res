@@ -22,10 +22,8 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 		super('pico-playable');
 	}
 
-	override function onCreate(event:ScriptEvent) {
+	function onCreate(event:ScriptEvent) {
 		super.onCreate(event);
-
-		// NOTE: this.x and this.y are not properly set here.
 
 		GameOverSubState.musicSuffix = '-pico';
 		GameOverSubState.blueBallSuffix = '-pico';
@@ -39,7 +37,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 	var picoFade:FunkinSprite;
 
 	/**
-     * Initialize and cache sprites used for the death animation,
+	 * Initialize and cache sprites used for the death animation,
 	 * for use later.
 	 */
 	function createDeathSprites() {
@@ -53,8 +51,8 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 
 		deathSpriteNene = FunkinSprite.createSparrow(0, 0, "characters/NeneKnifeToss");
 		var gf = PlayState.instance.currentStage.getGirlfriend();
-		deathSpriteNene.x = gf.originalPosition.x + 280;
-		deathSpriteNene.y = gf.originalPosition.y + 70;
+		deathSpriteNene.x = gf.x + 280;
+		deathSpriteNene.y = gf.y + 70;
 		deathSpriteNene.animation.addByPrefix('throw', "knife toss0", 24, false);
 		deathSpriteNene.visible = true;
 		deathSpriteNene.animation.finishCallback = function(name:String) {
@@ -117,8 +115,8 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 				deathSpriteRetry.animation.play('confirm');
 				// I think the glow makes the overall animation larger,
 				// but a plain FlxSprite doesn't have an animation offset option so we do it manually.
-				deathSpriteRetry.x -= 250;
-				deathSpriteRetry.y -= 200;
+				deathSpriteRetry.offset.x = 250;
+				deathSpriteRetry.offset.y = 200;
 
 				// Skip playing the animation.
 				return;
@@ -136,11 +134,11 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 		if (name == 'shootMISS' && PlayState.instance.health > 0.0) {
 			// ERIC: You have to use super instead of this or it breaks.
 			// This is because typeof(this) is PolymodAbstractClass.
-      picoFlicker = FlxFlicker.flicker(super, 1, 1 / 30, true, true, function(_) {
-        picoFlicker = FlxFlicker.flicker(super, 0.5, 1 / 60, true, true, function(_) {
+			picoFlicker = FlxFlicker.flicker(super, 1, 1 / 30, true, true, function(_) {
+				picoFlicker = FlxFlicker.flicker(super, 0.5, 1 / 60, true, true, function(_) {
 					picoFlicker = null;
 				});
-      });
+			});
 		}
 	}
 
@@ -153,12 +151,11 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 		}
 	}
 
-  public override function onResume(event:ScriptEvent) {
+	public override function onResume(event:ScriptEvent) {
 		super.onResume(event);
 
-		if (picoFlicker != null) {
+		if (picoFlicker != null)
 			picoFlicker.resume();
-		}
 	}
 
 	public override function getDeathCameraOffsets():Array<Float> {
@@ -182,15 +179,15 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 
 		var picoDeathExplosionPath = Paths.animateAtlas("characters/picoExplosionDeath", "weekend1");
 		picoDeathExplosion = new FlxAtlasSprite(this.x - 640, this.y - 340, picoDeathExplosionPath);
-    PlayState.instance.subState.add(picoDeathExplosion);
+		PlayState.instance.subState.add(picoDeathExplosion);
 		picoDeathExplosion.zIndex = 1000;
-    picoDeathExplosion.onAnimationFinish.add(onExplosionFinishAnim);
-    picoDeathExplosion.visible = true;
+		picoDeathExplosion.onAnimationFinish.add(onExplosionFinishAnim);
+		picoDeathExplosion.visible = true;
 		this.visible = false;
 
 		new FlxTimer().start(3.0, afterPicoDeathExplosionIntro);
 
-    picoDeathExplosion.playAnimation('intro');
+		picoDeathExplosion.playAnimation('intro');
 
 	}
 
@@ -214,7 +211,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 
 	function onExplosionFinishAnim(animLabel:String) {
 		if (animLabel == 'intro') {
-      picoDeathExplosion.playAnimation('Loop Start', true, false, true);
+			picoDeathExplosion.playAnimation('Loop Start', true, false, true);
 		} else if (animLabel == 'Confirm') {
 			// Do nothing, the animation will just play.
 		}
@@ -252,8 +249,10 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 			// also no animation suffix 🤔
 			GameOverSubState.instance.boyfriend.playAnimation('deathLoop');
 
-			deathSpriteRetry.x = this.x + 416;
-			deathSpriteRetry.y = this.y + 42;
+			//deathSpriteRetry.x = this.x + 416;
+			//deathSpriteRetry.y = this.y + 42;
+
+			deathSpriteRetry.setPosition(this.x + 200, this.y - 75);
 		}
 
 		if (name == "cock" && frameNumber == 3) {

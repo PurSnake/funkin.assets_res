@@ -18,6 +18,7 @@ class LimoRideStage extends Stage
 	{
 		super.buildStage();
 
+
 		// Apply sky shader.
 		var skyOverlay:OverlayBlend = new OverlayBlend();
 		var sunOverlay:FlxSprite = new FlxSprite().loadGraphic(Paths.image('limo/limoOverlay'));
@@ -110,5 +111,9 @@ class LimoRideStage extends Stage
 	function onCountdownStart(event:ScriptEvent) {
 		super.onCountdownStart(event);
 		resetFastCar();
+		PlayState.instance.comboPopUps.memberAdded.add((_) -> {
+			_.velocity.x += 100;
+			_.angularVelocity -= 25;
+		});
 	}
 }

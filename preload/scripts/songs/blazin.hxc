@@ -74,7 +74,7 @@ class BlazinSong extends Song {
 
 	function centerPlayerStrumline()
 	{
-    // This is a song gimmick we are never making middlescroll an option.
+		// This is a song gimmick we are never making middlescroll an option.
 
 		var playerStrumline:FlxSprite = PlayState.instance.playerStrumline;
 		if (playerStrumline != null)
@@ -83,16 +83,16 @@ class BlazinSong extends Song {
 		}
 	}
 
-  public override function onSongEnd(event:CountdownScriptEvent):Void {
+	public override function onSongEnd(event:CountdownScriptEvent):Void {
 		super.onSongEnd(event);
 
 		// Keep the cutscene from playing outside of story mode.
-    if (!PlayStatePlaylist.isStoryMode) hasPlayedCutscene = true;
+		if (!PlayStatePlaylist.isStoryMode) hasPlayedCutscene = true;
 
-    if (!hasPlayedCutscene) {
-      trace('Pausing ending to play a video cutscene (`blazin`)');
+		if (!hasPlayedCutscene) {
+			trace('Pausing ending to play a video cutscene (`blazin`)');
 
-      hasPlayedCutscene = true;
+			hasPlayedCutscene = true;
 
 			// Add a black background behind the cutscene to fix a transition bug!
 			trace('Adding black background behind cutscene over UI');
@@ -103,19 +103,19 @@ class BlazinSong extends Song {
 			PlayState.instance.add(bgSprite);
 			PlayState.instance.refresh();
 
-      event.cancel(); // CANCEL THE COUNTDOWN!
+			event.cancel(); // CANCEL THE COUNTDOWN!
 
-      startVideo();
-    } else {
+			startVideo();
+		} else {
 			// Make sure the cutscene can play again next time!
 			hasPlayedCutscene = false;
 			// DO NOT CANCEL THE EVENT!
 		}
 	}
 
-  function startVideo() {
+	function startVideo() {
 		VideoCutscene.play(Paths.videos('blazinCutscene'), CutsceneType.ENDING);
 		// This will call onSongEnd() again so make sure the flag is set!
 		hasPlayedCutscene = true;
-  }
+	}
 }

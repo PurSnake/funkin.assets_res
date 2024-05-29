@@ -151,7 +151,7 @@ class PicoBlazinCharacter extends AnimateAtlasCharacter
 		picoDeathConfirm.animation.play('confirm');
 		picoDeathConfirm.scale.set(1.75, 1.75);
 		picoDeathConfirm.zIndex = 1000;
-    FlxG.state.subState.add(picoDeathConfirm);
+		FlxG.state.subState.add(picoDeathConfirm);
 		picoDeathConfirm.visible = true;
 		this.visible = false;
 

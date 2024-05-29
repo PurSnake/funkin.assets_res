@@ -6,51 +6,51 @@ import funkin.play.cutscene.VideoCutscene;
 import funkin.play.PlayStatePlaylist;
 
 class UghSong extends Song {
-  var hasPlayedCutscene:Bool;
+	var hasPlayedCutscene:Bool;
 
 	public function new() {
 		super('ugh');
 
-    hasPlayedCutscene = false;
+		hasPlayedCutscene = false;
 	}
 
-  public override function onCountdownStart(event:CountdownScriptEvent):Void {
+	public override function onCountdownStart(event:CountdownScriptEvent):Void {
 		super.onCountdownStart(event);
 
-    if (!PlayStatePlaylist.isStoryMode) hasPlayedCutscene = true;
+		if (!PlayStatePlaylist.isStoryMode) hasPlayedCutscene = true;
 
-    if (!hasPlayedCutscene) {
-      trace('Pausing countdown to play a video cutscene (`ugh`)');
+		if (!hasPlayedCutscene) {
+			trace('Pausing countdown to play a video cutscene (`ugh`)');
 
-      hasPlayedCutscene = true;
+			hasPlayedCutscene = true;
 
-      event.cancel(); // CANCEL THE COUNTDOWN!
+			event.cancel(); // CANCEL THE COUNTDOWN!
 
-      startVideo();
-    }
+			startVideo();
+		}
 	}
 
-  function startVideo() {
-    VideoCutscene.play(Paths.videos('ughCutscene'));
-  }
+	function startVideo() {
+		VideoCutscene.play(Paths.videos('ughCutscene'));
+	}
 
-  /**
-   * Don't replay the cutscene between restarts.
-   */
-  function onSongRetry(event:ScriptEvent)
-  {
-    super.onSongRetry(event);
+	/**
+	 * Don't replay the cutscene between restarts.
+	 */
+	function onSongRetry(event:ScriptEvent)
+	{
+		super.onSongRetry(event);
 
-    hasPlayedCutscene = true;
-  }
+		hasPlayedCutscene = true;
+	}
 
-  /**
-   * Replay the cutscene after leaving the song.
-   */
-  function onCreate(event:ScriptEvent):Void
-  {
-    super.onCreate(event);
+	/**
+	 * Replay the cutscene after leaving the song.
+	 */
+	function onCreate(event:ScriptEvent):Void
+	{
+		super.onCreate(event);
 
-    hasPlayedCutscene = false;
-  }
+		hasPlayedCutscene = false;
+	}
 }

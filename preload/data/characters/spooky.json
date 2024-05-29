@@ -4,6 +4,10 @@
   "assetPath": "characters/SpookyKids",
   "singTime": 8.0,
   "startingAnimation": "danceRight",
+  "offsets": [
+    0,
+    25
+  ],
   "healthIcon": {
     "id": "spooky",
     "color": "#CC8C30"
