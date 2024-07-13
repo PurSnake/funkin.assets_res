@@ -41,20 +41,26 @@
     },
     "holdNote": {
       "assetPath": "week6:weeb/pixelUI/arrowEndsNew",
-      "scale": 6.0,
+      "scale": 8.0,
       "isPixel": true,
       "data": {}
     },
     "noteSplash": {
-      "assetPath": "",
+      "assetPath": "week6:weeb/pixelUI/splashes-pixel",
+      "scale": 6.0,
+      "isPixel": true,
+      "offsets": [-16, -42],
       "data": {
-        "enabled": false
+        "enabled": true
       }
     },
     "holdNoteCover": {
-      "assetPath": "",
+      "assetPath": "week6:weeb/pixelUI/splashesHOLDS-pixel",
+      "offsets": [48, 192],
+      "scale": 6.0,
+      "isPixel": true,
       "data": {
-        "enabled": false
+        "enabled": true
       }
     }
   }

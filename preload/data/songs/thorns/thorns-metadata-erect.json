@@ -2,17 +2,9 @@
   "version": "2.2.0",
   "songName": "Thorns Erect",
   "artist": "Kawai Sprite (feat. Saster)",
-  "divisions": 96,
-  "looped": false,
-  "offsets": {
-    "instrumental": 0,
-    "altInstrumentals": {},
-    "vocals": {
-      "bf-pixel": 0
-    }
-  },
+  "charter": "Jenny Crowe + fabs",
   "playData": {
-    "songVariations": [],
+    "album": "volume3",
     "difficulties": ["erect", "nightmare"],
     "characters": {
       "player": "bf-pixel",
@@ -22,11 +14,7 @@
     },
     "stage": "schoolEvil",
     "noteStyle": "pixel",
-    "ratings": {
-      "nightmare": 0,
-      "normal": 0,
-      "erect": 0
-    },
+    "ratings": { "erect": 6, "nightmare": 8 },
     "previewStart": 0,
     "previewEnd": 15000
   },

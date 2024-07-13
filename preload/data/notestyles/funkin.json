@@ -38,19 +38,37 @@
       }
     },
     "holdNote": {
-      "assetPath": "NOTE_hold_assets",
+      "assetPath": "shared:noteHolds",
       "data": {}
     },
     "noteSplash": {
-      "assetPath": "",
+      "assetPath": "shared:noteSplashes",
       "data": {
-        "enabled": true
+        "left1": { "prefix": "note impact 1 purple0" },
+        "left2": { "prefix": "note impact 2 purple0" },
+        "down1": { "prefix": "note impact 1 blue0" },
+        "down2": { "prefix": "note impact 2 blue0" },
+        "up1": { "prefix": "note impact 1 green0" },
+        "up2": { "prefix": "note impact 2 green0" },
+        "right1": { "prefix": "note impact 1 red0" },
+        "right2": { "prefix": "note impact 2 red0" }
       }
     },
     "holdNoteCover": {
-      "assetPath": "",
+      "assetPath": "shared:noteHoldCovers",
       "data": {
-        "enabled": true
+        "leftStart": { "prefix": "holdCoverStartPurple0" },
+        "leftContinue": { "prefix": "holdCoverPurple0", "looped": true },
+        "leftEnd": { "prefix": "holdCoverEndPurple0" },
+        "downStart": { "prefix": "holdCoverStartBlue0" },
+        "downContinue": { "prefix": "holdCoverBlue0", "looped": true },
+        "downEnd": { "prefix": "holdCoverEndBlue0" },
+        "upStart": { "prefix": "holdCoverStartGreen0" },
+        "upContinue": { "prefix": "holdCoverGreen0", "looped": true },
+        "upEnd": { "prefix": "holdCoverEndGreen0" },
+        "rightStart": { "prefix": "holdCoverStartRed0" },
+        "rightContinue": { "prefix": "holdCoverRed0", "looped": true },
+        "rightEnd": { "prefix": "holdCoverEndRed0" }
       }
     }
   }

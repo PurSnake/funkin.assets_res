@@ -59,11 +59,11 @@
     </hbox>
     <grid columns="2" width="100%">
       <label text="Player Offset (ms)" verticalAlign="center" />
-      <number-stepper id="offsetStepperPlayer" pos="0" horizontalAlign="right" tooltip="Adjust the start of the player vocal track by this many milliseconds, ON TOP OF the instrumental offset." />
+      <number-stepper id="offsetStepperPlayer" pos="0" step="0.1" horizontalAlign="right" tooltip="Adjust the start of the player vocal track by this many milliseconds, ON TOP OF the instrumental offset." />
       <label text="Opponent Offset (ms)" verticalAlign="center" />
-      <number-stepper id="offsetStepperOpponent" pos="0" horizontalAlign="right" tooltip="Adjust the start of the opponent vocal track by this many milliseconds, ON TOP OF the instrumental offset." />
+      <number-stepper id="offsetStepperOpponent" pos="0" step="0.1" horizontalAlign="right" tooltip="Adjust the start of the opponent vocal track by this many milliseconds, ON TOP OF the instrumental offset." />
       <label text="Instrumental Offset (ms)" verticalAlign="center" />
-      <number-stepper id="offsetStepperInstrumental" pos="0" horizontalAlign="right" tooltip="Adjust the start of the instrumental track by this many milliseconds." />
+      <number-stepper id="offsetStepperInstrumental" pos="0" step="0.1" horizontalAlign="right" tooltip="Adjust the start of the instrumental track by this many milliseconds." />
     </grid>
   </vbox>
 </collapsible-dialog>
