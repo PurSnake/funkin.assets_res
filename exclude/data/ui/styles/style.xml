@@ -133,5 +133,13 @@
 		.upload-bg-hover {
 		background-color: #444444;
 		}
-</style>
+		.modBox {
+		background-color: $solid-background-color;
+		border: 1px solid #000;
+		}
+		.modBox:hover {
+		background-color: #484848;
+		cursor: pointer;
+		}
+	</style>
 </box>

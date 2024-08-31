@@ -1,37 +1,37 @@
 {
-"AN": {
-"N": "Pico_Fighting_Animations_V3",
-"STI": {
-"SI": {
-"SN": "Pico Fighting ALL ANIMS",
-"IN": "",
-"ST": "G",
-"FF": 0,
-"LP": "PO",
-"TRP": {
-"x": 0.0,
-"y": 0.0
-},
-"M3D": [
-1.0,
-0.0,
-0.0,
-0.0,
-0.0,
-1.0,
-0.0,
-0.0,
-0.0,
-0.0,
-1.0,
-0.0,
-858.0,
-770.0,
-0.0,
-1.0
-]
-}
-},
+	"AN": {
+		"N": "Pico_Fighting_Animations_V3",
+		"STI": {
+			"SI": {
+				"SN": "Pico Fighting ALL ANIMS",
+				"IN": "",
+				"ST": "G",
+				"FF": 0,
+				"LP": "PO",
+				"TRP": {
+					"x": 0.0,
+					"y": 0.0
+				},
+				"M3D": [
+					1.0,
+					0.0,
+					0.0,
+					0.0,
+					0.0,
+					1.0,
+					0.0,
+					0.0,
+					0.0,
+					0.0,
+					1.0,
+					0.0,
+					858.0,
+					770.0,
+					0.0,
+					1.0
+				]
+			}
+		},
 "SN": "Pico Fighting ALL ANIMS",
 "TL": {
 "L": [

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menubar id="menubar" width="100%" paddingLeft="172">
+  <style>
+    .menu {
+    // The width of the individual menu items
+    width: 160px;
+    }
+  </style>
+  <menu text="File" horizontalAlign="right">
+    <menu-item id="menubarItemReloadMods" text="Reload Mods" shortcutText="Ctrl+R" />
+    <menu-separator />
+    <menu-item id="menubarItemQuit" text="Quit" shortcutText="Ctrl+Q" />
+  </menu>
+</menubar>

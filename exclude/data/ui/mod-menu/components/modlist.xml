@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<grid width="100%" height="100%" columns="2">
+  <vbox width="100%" height="100%" horizontalAlign="center">
+    <label width="450" text="Disabled Mods" horizontalAlign="center" />
+    <scrollview width="450" height="100%" contentWidth="100%" horizontalAlign="center">
+      <vbox id="disabledModsBox" width="100%" />
+    </scrollview>
+  </vbox>
+  <vbox width="100%" height="100%" horizontalAlign="center">
+    <label width="450" text="Enabled Mods" horizontalAlign="center" />
+    <scrollview width="450" height="100%" contentWidth="100%" horizontalAlign="center">
+      <vbox id="enabledModsBox" width="100%" />
+    </scrollview>
+  </vbox>
+</grid>

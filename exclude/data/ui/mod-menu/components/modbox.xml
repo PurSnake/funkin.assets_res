@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<hbox width="100%" height="40" tooltip="Description" styleName="modBox">
+  <label id="modLabel" width="100%" text="Test Mod" fontSize="16" paddingLeft="5" verticalAlign="center" />
+  <image id="modIcon" width="32" height="32" marginRight="5" horizontalAlign="right" verticalAlign="center" />
+</hbox>

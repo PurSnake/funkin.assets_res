@@ -324,6 +324,8 @@ class NeneCharacter extends SparrowCharacter {
 	}
 
 	function shouldTransitionState():Bool {
+		if (PlayState.instance.isPlayerDying) return false;
+
 		return PlayState.instance.currentStage.getBoyfriend().characterId != "pico-blazin";
 	}
 

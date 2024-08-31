@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="volume.png">
+	<!-- Created with Adobe Animate version 24.0.0.305 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="volume back0000" x="1" y="1" width="388" height="142"/>
+	<SubTexture name="volume back0001" x="1" y="1" width="388" height="142"/>
+	<SubTexture name="volume back0002" x="1" y="144" width="388" height="142"/>
+	<SubTexture name="volume back0003" x="1" y="144" width="388" height="142"/>
+	<SubTexture name="volume back0004" x="390" y="1" width="388" height="142"/>
+	<SubTexture name="volume back0005" x="390" y="1" width="388" height="142"/>
+	<SubTexture name="volume back0006" x="779" y="1" width="388" height="142"/>
+	<SubTexture name="volume back0007" x="779" y="1" width="388" height="142"/>
+	<SubTexture name="volume back0008" x="390" y="144" width="388" height="142"/>
+	<SubTexture name="volume back0009" x="390" y="144" width="388" height="142"/>
+	<SubTexture name="volume back0010" x="779" y="144" width="388" height="142"/>
+	<SubTexture name="volume back0011" x="779" y="144" width="388" height="142"/>
+	<SubTexture name="volume back0012" x="390" y="144" width="388" height="142"/>
+	<SubTexture name="volume back0013" x="390" y="144" width="388" height="142"/>
+</TextureAtlas>

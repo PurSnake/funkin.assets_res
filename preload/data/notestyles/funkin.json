@@ -43,6 +43,8 @@
     },
     "noteSplash": {
       "assetPath": "shared:noteSplashes",
+      "scale": 0.9,
+      "offsets": [15, 0],
       "data": {
         "left1": { "prefix": "note impact 1 purple0" },
         "left2": { "prefix": "note impact 2 purple0" },
