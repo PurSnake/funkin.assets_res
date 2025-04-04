@@ -31,7 +31,7 @@ class PhillyTrainErectStage extends Stage
 
 	var lightShader:FlxRuntimeShader;
 	var trainSound:FlxSound;
-  var colorShader:AdjustColorShader;
+  	var colorShader:AdjustColorShader;
 	var cutsceneMusic:FunkinSound;
 
 	var hasPlayedInGameCutscene:Bool = false;

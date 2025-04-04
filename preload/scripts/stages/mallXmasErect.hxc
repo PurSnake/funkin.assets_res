@@ -24,7 +24,7 @@ class MallXmasErectStage extends Stage
 		super.onCreate(event);
 
 		// Create a single color shader and reuse it.
-    colorShader = new AdjustColorShader();
+    	colorShader = new AdjustColorShader();
 		colorShader.hue = 5;
 		colorShader.saturation = 20;
 

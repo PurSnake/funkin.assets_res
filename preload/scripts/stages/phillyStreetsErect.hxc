@@ -57,22 +57,24 @@ class PhillyStreetsErectStage extends Stage
 	}
 
 	/**
-  * Changes the current state of the traffic lights.
+	* Changes the current state of the traffic lights.
 	* Updates the next change accordingly and will force cars to move when ready
-  */
+	*/
 	function changeLights(beat:Int):Void{
 
 		lastChange = beat;
 		lightsStop = !lightsStop;
 
-		if(lightsStop){
+		if(lightsStop)
+		{
 			getNamedProp('phillyTraffic').animation.play('tored');
 			changeInterval = 20;
 		} else {
 			getNamedProp('phillyTraffic').animation.play('togreen');
 			changeInterval = 30;
 
-			if(carWaiting == true) finishCarLights(getNamedProp('phillyCars'));
+			if(carWaiting == true)
+				finishCarLights(getNamedProp('phillyCars'));
 		}
 	}
 
@@ -176,86 +178,70 @@ class PhillyStreetsErectStage extends Stage
 		scrollingSky.scrollFactor.set(0.1, 0.1);
 		scrollingSky.zIndex = 10;
 		scrollingSky.scale.set(0.65, 0.65);
-
-		PlayState.instance.currentStage.add(scrollingSky);
-		PlayState.instance.currentStage.refresh(); // Apply z-index.
-
-		colorShader = new AdjustColorShader();
+		add(scrollingSky);
 
 		mist0 = new FlxBackdrop(Paths.image('phillyStreets/erect/mistMid'), 0x01);
 		mist0.setPosition(-650, -100);
 		mist0.scrollFactor.set(1.2, 1.2);
 		mist0.zIndex = 1000;
-    mist0.blend = 0;
+    	mist0.blend = 0;
 		mist0.color = 0xFF5c5c5c;
 		mist0.alpha = 0.6;
 		mist0.velocity.x = 172;
-
-		PlayState.instance.currentStage.add(mist0);
-		PlayState.instance.currentStage.refresh(); // Apply z-index.
+		add(mist0);
 
 		mist1 = new FlxBackdrop(Paths.image('phillyStreets/erect/mistMid'), 0x01);
 		mist1.setPosition(-650, -100);
 		mist1.scrollFactor.set(1.1, 1.1);
 		mist1.zIndex = 1000;
-    mist1.blend = 0;
+    	mist1.blend = 0;
 		mist1.color = 0xFF5c5c5c;
 		mist1.alpha = 0.6;
 		mist1.velocity.x = 150;
-
-		PlayState.instance.currentStage.add(mist1);
-		PlayState.instance.currentStage.refresh(); // Apply z-index.
+		add(mist1);
 
 		mist2 = new FlxBackdrop(Paths.image('phillyStreets/erect/mistBack'), 0x01);
 		mist2.setPosition(-650, -100);
 		mist2.scrollFactor.set(1.2, 1.2);
 		mist2.zIndex = 1001;
-    mist2.blend = 0;
+    	mist2.blend = 0;
 		mist2.color = 0xFF5c5c5c;
 		mist2.alpha = 0.8;
 		mist2.velocity.x = -80;
-
-		PlayState.instance.currentStage.add(mist2);
-		PlayState.instance.currentStage.refresh(); // Apply z-index.
+		add(mist2);
 
 		mist3 = new FlxBackdrop(Paths.image('phillyStreets/erect/mistMid'), 0x01);
 		mist3.setPosition(-650, -100);
 		mist3.scrollFactor.set(0.95, 0.95);
 		mist3.zIndex = 99;
-   	mist3.blend = 0;
+   		mist3.blend = 0;
 		mist3.color = 0xFF5c5c5c;
 		mist3.alpha = 0.5;
 		mist3.velocity.x = -50;
 		mist3.scale.set(0.8, 0.8);
-
-		PlayState.instance.currentStage.add(mist3);
-		PlayState.instance.currentStage.refresh(); // Apply z-index.
+		add(mist3);
 
 		mist4 = new FlxBackdrop(Paths.image('phillyStreets/erect/mistBack'), 0x01);
 		mist4.setPosition(-650, -100);
 		mist4.scrollFactor.set(0.8, 0.8);
 		mist4.zIndex = 88;
-   	mist4.blend = 0;
+   		mist4.blend = 0;
 		mist4.color = 0xFF5c5c5c;
 		mist4.alpha = 1;
 		mist4.velocity.x = 40;
 		mist4.scale.set(0.7, 0.7);
-
-		PlayState.instance.currentStage.add(mist4);
-		PlayState.instance.currentStage.refresh(); // Apply z-index.
+		add(mist4);
 
 		mist5 = new FlxBackdrop(Paths.image('phillyStreets/erect/mistMid'), 0x01);
 		mist5.setPosition(-650, -100);
 		mist5.scrollFactor.set(0.5, 0.5);
 		mist5.zIndex = 39;
-   	mist5.blend = 0;
+   		mist5.blend = 0;
 		mist5.color = 0xFF5c5c5c;
 		mist5.alpha = 1;
 		mist5.velocity.x = 20;
 		mist5.scale.set(1.1, 1.1);
-
-		PlayState.instance.currentStage.add(mist5);
-		PlayState.instance.currentStage.refresh(); // Apply z-index.
+		add(mist5);
 	}
 
 	override function onDestroy(event:ScriptEvent) {
@@ -272,9 +258,9 @@ class PhillyStreetsErectStage extends Stage
 	}
 
 	/**
-  * Drive the car away from the lights to the end of the road.
+	* Drive the car away from the lights to the end of the road.
 	* Used when the lights turn green and the car is waiting in position.
-  */
+  	*/
 	function finishCarLights(sprite:FlxSprite):Void{
 		carWaiting = false;
 		var duration:Float = FlxG.random.float(1.8, 3);
@@ -290,13 +276,13 @@ class PhillyStreetsErectStage extends Stage
 
 		FlxTween.angle(sprite, rotations[0], rotations[1], duration, {ease: FlxEase.sineIn, startDelay: startdelay} );
 		FlxTween.quadPath(sprite, path, duration, true,
-    {
-      ease: FlxEase.sineIn,
+		{
+			ease: FlxEase.sineIn,
 			startDelay: startdelay,
 			onComplete: function(_) {
-            carInterruptable = true;
-      }
-    });
+            	carInterruptable = true;
+      		}
+    	});
 	}
 
 	/**
@@ -489,28 +475,33 @@ class PhillyStreetsErectStage extends Stage
 		}
 		else
 		{
-		rainShader.intensity = rainShaderStartIntensity;
-		rainShader.updateViewInfo(FlxG.width, FlxG.height, FlxG.camera);
-		rainShader.update(event.elapsed);
+			rainShader.intensity = rainShaderStartIntensity;
+			rainShader.updateViewInfo(FlxG.width, FlxG.height, FlxG.camera);
+			rainShader.update(event.elapsed);
 		}
 
+		if(scrollingSky != null)
+			scrollingSky.scrollX -= FlxG.elapsed * 22;
 
-		if(scrollingSky != null) scrollingSky.scrollX -= FlxG.elapsed * 22;
-
-		if(PlayState.instance.currentStage.getBoyfriend() != null && PlayState.instance.currentStage.getBoyfriend().shader == null){
-      PlayState.instance.currentStage.getBoyfriend().shader = colorShader;
-		  PlayState.instance.currentStage.getGirlfriend().shader = colorShader;
-		  PlayState.instance.currentStage.getDad().shader = colorShader;
-
-		  colorShader.hue = -5;
-		  colorShader.saturation = -40;
-		  colorShader.contrast = -25;
-		  colorShader.brightness = -20;
-    }
 
 		// if (rainSndAmbience != null) {
 		// 	rainSndAmbience.volume = Math.min(0.3, remappedIntensityValue * 2);
 		// }
+	}
+
+	override function postConstruct():Void
+	{
+		super.postConstruct();
+
+		colorShader = new AdjustColorShader();
+      	getBoyfriend().shader = colorShader;
+		getGirlfriend().shader = colorShader;
+		getDad().shader = colorShader;
+
+		colorShader.hue = -5;
+		colorShader.saturation = -40;
+		colorShader.contrast = -25;
+		colorShader.brightness = -20;
 	}
 
 	function onBeatHit(event:SongTimeScriptEvent)
