@@ -60,10 +60,11 @@ class MainStageErectStage extends Stage
 	{
 		super.onUpdate(event);
 
-    if(PlayState.instance.currentStage.getBoyfriend() != null && PlayState.instance.currentStage.getBoyfriend().shader == null){
-      PlayState.instance.currentStage.getBoyfriend().shader = colorShaderBf;
-			PlayState.instance.currentStage.getGirlfriend().shader = colorShaderGf;
-			PlayState.instance.currentStage.getDad().shader = colorShaderDad;
+    if(getBoyfriend() != null && getBoyfriend().shader == null)
+		{
+      getBoyfriend().setShader(colorShaderBf);
+			getGirlfriend().setShader(colorShaderGf);
+			getDad().setShader(colorShaderDad);
     }
 
 	}

@@ -24,18 +24,11 @@ class SchoolEvilStage extends Stage
 		getNamedProp('evilSchoolFG').shader = wiggle;
 	}
 
-	override function addCharacter(char:BaseCharacter, charType:CharacterType)
-	{
-
-		super.addCharacter(char, charType);
-	}
-
 	override function onUpdate(event:UpdateScriptEvent) {
 		super.onUpdate(event);
 
-		if (wiggle != null) {
+		if (wiggle != null)
 			wiggle.update(event.elapsed);
-		}
 	}
 
 	function kill() {

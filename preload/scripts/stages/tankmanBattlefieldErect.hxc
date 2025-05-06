@@ -38,40 +38,34 @@ class TankmanBattlefieldErectStage extends Stage
 
 		switch(charType){
 			case CharacterType.BF:
-
 				rim.angle = 90;
-
-				character.animation.onFrameChange.add(function() {
+				character.animation.onFrameChange.add(() -> {
 					if (getBoyfriend() != null)
-					{
       			rim.updateFrameInfo(getBoyfriend().frame);
-					}
     		});
 
 			case CharacterType.GF:
-
 				rim.angle = 90;
-
-				character.animation.onFrameChange.add(function() {
+				character.animation.onFrameChange.add(() -> {
       		rim.updateFrameInfo(getGirlfriend().frame);
     		});
 
-				if(getGirlfriend().characterId == 'gf-tankmen'){
+				if(getGirlfriend().characterId == 'gf-tankmen')
+				{
 					rim.loadAltMask('assets/week7/images/erect/masks/gfTankmen_mask.png');
 					rim.maskThreshold = 0.4;
 					rim.useAltMask = true;
 				}
 
 			case CharacterType.DAD:
-
 				rim.angle = 135;
 				rim.threshold = 0.3;
-
-				character.animation.onFrameChange.add(function() {
+				character.animation.onFrameChange.add(() -> {
       		rim.updateFrameInfo(getDad().frame);
     		});
 
-				if(getDad().characterId == 'tankman-bloody'){
+				if(getDad().characterId == 'tankman-bloody')
+				{
 					rim.loadAltMask('assets/week7/images/erect/masks/tankmanCaptainBloody_mask.png');
 					rim.maskThreshold = 1;
 					rim.useAltMask = false;
@@ -79,9 +73,7 @@ class TankmanBattlefieldErectStage extends Stage
 
 				// need to save this for later for when the mask is needed
 				tankmanRim = rim;
-
 			default:
-
 		}
 
 	}
@@ -94,10 +86,7 @@ class TankmanBattlefieldErectStage extends Stage
 		super.onSongEvent(scriptEvent);
 
 		if (scriptEvent.eventData.eventKind == "EnableMask" && tankmanRim != null)
-		{
 			tankmanRim.useAltMask = true;
-		}
-
 	}
 
 	override function buildStage()
@@ -114,9 +103,8 @@ class TankmanBattlefieldErectStage extends Stage
 	{
 		super.onBeatHit(event);
 
-		if(FlxG.random.bool(2)){
+		if(FlxG.random.bool(2))
 			getNamedProp('sniper').playAnimation('sip', false, true);
-		}
 	}
 
 	function onSongRetry(event:ScriptEvent)
@@ -124,8 +112,6 @@ class TankmanBattlefieldErectStage extends Stage
 		super.onSongRetry(event);
 
 		if (tankmanRim != null)
-		{
 			tankmanRim.useAltMask = false;
-		}
 	}
 }

@@ -14,12 +14,7 @@ class SchoolErectStage extends Stage
 	{
 		super.buildStage();
 
-		if (PlayState.instance.currentSong.id.toLowerCase() == "roses")
-		{
-			getNamedProp('freaks').idleSuffix = '-scared';
-		} else {
-			getNamedProp('freaks').idleSuffix = '';
-		}
+		getNamedProp('freaks').idleSuffix = (PlayState.instance.currentSong.id.toLowerCase() == "roses") ? '-scared' : '';
 	}
 
 	override function addCharacter(character:BaseCharacter, charType:CharacterType):Void {
