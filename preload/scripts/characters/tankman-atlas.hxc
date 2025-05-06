@@ -12,15 +12,15 @@ class TankmanAtlasCharacter extends AnimateAtlasCharacter {
 
 	function onNoteHit(event:HitNoteScriptEvent)
 	{
-		if (!event.note.noteData.getMustHitNote() && characterType == CharacterType.DAD) {
+		if (event.targerCharacter == getSelf()) {
 			// Override the hit note animation.
 			switch(event.note.kind) {
 				case "ugh":
-					holdTimer = 0;
+					hitHoldTimer(event.note.length);
 					this.playAnimFbfation('ugh');
 					return;
 				case "hehPrettyGood":
-					holdTimer = 0;
+					hitHoldTimer(event.note.length);
 					this.playAnimation('hehPrettyGood');
 					return;
 			}

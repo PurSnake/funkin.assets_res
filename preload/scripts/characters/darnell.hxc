@@ -12,17 +12,17 @@ class DarnellCharacter extends SparrowCharacter {
 
 	function onNoteHit(event:HitNoteScriptEvent)
 	{
-		if (!event.note.noteData.getMustHitNote() && characterType == CharacterType.DAD) {
+		if (event.targerCharacter == getSelf()) {
 			// Override the hit note animation.
 			switch(event.note.kind) {
 				case "weekend-1-lightcan":
-					holdTimer = 0;
+					hitHoldTimer(0);
 					playLightCanAnim();
 				case "weekend-1-kickcan":
-					holdTimer = 0;
+					hitHoldTimer(0);
 					playKickCanAnim();
 				case "weekend-1-kneecan":
-					holdTimer = 0;
+					hitHoldTimer(0);
 					playKneeCanAnim();
 				default:
 					super.onNoteHit(event);
@@ -31,10 +31,9 @@ class DarnellCharacter extends SparrowCharacter {
 	}
 
 	function onNoteIncoming(event:NoteScriptEvent) {
-		if (!event.note.noteData.getMustHitNote() && characterType == CharacterType.DAD) {
+		if (event.targerCharacter == getSelf()) {
 			// Get how long until it's time to strum the note.
 			var msTilStrum = event.note.strumTime - Conductor.instance.songPosition;
-
 			switch(event.note.kind) {
 				case "weekend-1-lightcan":
 					scheduleLightCanSound(msTilStrum - 65);

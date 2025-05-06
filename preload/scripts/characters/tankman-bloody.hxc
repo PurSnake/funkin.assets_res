@@ -30,15 +30,15 @@ class TankmanBloodyCharacter extends MultiSparrowCharacter {
 	{
 		super.onNoteHit(event);
 
-		if (!event.note.noteData.getMustHitNote() && characterType == CharacterType.DAD) {
+		if (event.targerCharacter == getSelf()) {
 			// Override the hit note animation.
 			switch(event.note.kind) {
 				case "ugh":
-					holdTimer = 0;
+					hitHoldTimer(event.note.length);
 					this.playAnimation('ugh', true, true);
 					return;
 				case "hehPrettyGood":
-					holdTimer = 0;
+					hitHoldTimer(event.note.length);
 					this.playAnimation('hehPrettyGood', true, true);
 					return;
 			}

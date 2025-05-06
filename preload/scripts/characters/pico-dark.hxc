@@ -32,11 +32,11 @@ class PicoDarkCharacter extends MultiSparrowCharacter {
 	{
 		super.onNoteHit(event);
 
-		if (!event.note.noteData.getMustHitNote() && characterType == CharacterType.BF) {
+		if (event.targerCharacter == getSelf()) {
 			// Override the hit note animation.
 			switch(event.note.kind) {
 				case "cheer":
-					holdTimer = 0;
+					hitHoldTimer(0);
 					this.playAnimation('cheer', true, true);
 					return;
 			}

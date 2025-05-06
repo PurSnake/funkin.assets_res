@@ -10,18 +10,15 @@ class BoyfriendChristmasCharacter extends MultiSparrowCharacter {
 		super('bf-christmas');
 	}
 
-function onNoteHit(event:HitNoteScriptEvent)
+	function onNoteHit(event:HitNoteScriptEvent)
 	{
-		if (event.eventCanceled) {
-			// onNoteHit event was cancelled by the gameplay module.
+		if (event.eventCanceled)
 			return;
-		}
 
-		if (event.note.noteData.getMustHitNote() && characterType == CharacterType.BF) {
-			// Override the hit note animation.
+		if (event.targerCharacter == getSelf()) {
 			switch(event.note.kind) {
 				case "censor":
-					holdTimer = 0;
+					hitHoldTimer(event.note.length);
 					this.playSingAnimation(event.note.noteData.getDirection(), false, 'censor');
 					return;
 				default:
