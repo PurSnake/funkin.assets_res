@@ -80,7 +80,7 @@ class PicoPlayerCharacter extends MultiSparrowCharacter {
 			return;
 		}
 
-		if (event.targerCharacter == getSelf()) {
+		if (event.targetCharacter == getSelf()) {
 			// Override the hit note animation.
 			switch(event.note.kind) {
 				case "censor":

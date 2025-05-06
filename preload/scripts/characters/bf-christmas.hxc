@@ -15,7 +15,7 @@ class BoyfriendChristmasCharacter extends MultiSparrowCharacter {
 		if (event.eventCanceled)
 			return;
 
-		if (event.targerCharacter == getSelf()) {
+		if (event.targetCharacter == getSelf()) {
 			switch(event.note.kind) {
 				case "censor":
 					hitHoldTimer(event.note.length);

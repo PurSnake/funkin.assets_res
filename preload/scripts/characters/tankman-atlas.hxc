@@ -12,7 +12,7 @@ class TankmanAtlasCharacter extends AnimateAtlasCharacter {
 
 	function onNoteHit(event:HitNoteScriptEvent)
 	{
-		if (event.targerCharacter == getSelf()) {
+		if (event.targetCharacter == getSelf()) {
 			// Override the hit note animation.
 			switch(event.note.kind) {
 				case "ugh":
@@ -25,7 +25,6 @@ class TankmanAtlasCharacter extends AnimateAtlasCharacter {
 					return;
 			}
 		}
-
 		super.onNoteHit(event);
 	}
 }

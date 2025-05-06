@@ -12,7 +12,7 @@ class DarnellCharacter extends SparrowCharacter {
 
 	function onNoteHit(event:HitNoteScriptEvent)
 	{
-		if (event.targerCharacter == getSelf()) {
+		if (event.targetCharacter == getSelf()) {
 			// Override the hit note animation.
 			switch(event.note.kind) {
 				case "weekend-1-lightcan":
@@ -31,7 +31,7 @@ class DarnellCharacter extends SparrowCharacter {
 	}
 
 	function onNoteIncoming(event:NoteScriptEvent) {
-		if (event.targerCharacter == getSelf()) {
+		if (event.targetCharacter == getSelf()) {
 			// Get how long until it's time to strum the note.
 			var msTilStrum = event.note.strumTime - Conductor.instance.songPosition;
 			switch(event.note.kind) {
