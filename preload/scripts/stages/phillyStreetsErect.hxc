@@ -485,8 +485,8 @@ class PhillyStreetsErectStage extends Stage
 
 		if(getBoyfriend() != null && getBoyfriend().shader == null){
       getBoyfriend().setShader(colorShader);
-		  etGirlfriend().setShader(colorShader);
-		  ggetDad().setShader(colorShader);
+		  getGirlfriend().setShader(colorShader);
+		  getDad().setShader(colorShader);
 
 		  colorShader.hue = -5;
 		  colorShader.saturation = -40;
