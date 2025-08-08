@@ -33,8 +33,8 @@ class FreePlayDJBF extends AnimateAtlasFreeplayDJ
       }
     });
 
-	  IDLE_EGG_PERIOD = 2.0;
-	  IDLE_CARTOON_PERIOD = 5.0;
+	  //IDLE_EGG_PERIOD = 2.0;
+	  //IDLE_CARTOON_PERIOD = 5.0;
   }
 
   var channelFrame:Int = 60;
@@ -78,7 +78,7 @@ class FreePlayDJBF extends AnimateAtlasFreeplayDJ
       this.channelFrame = FlxG.random.bool(33) ? (playableCharData.getCartoonLoopBlinkFrame()) : (playableCharData.getCartoonLoopFrame());
 
       // Character switches channels when the video ends, or at a 10% chance each time his idle loops.
-      if (FlxG.random.bool(20))
+      if (FlxG.random.bool(10))
       {
         this.channelFrame = playableCharData.getCartoonChannelChangeFrame();
         //runTvLogic();
