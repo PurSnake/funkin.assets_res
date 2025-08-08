@@ -176,6 +176,13 @@ class FreePlayDJBF extends AnimateAtlasFreeplayDJ
         this.cartoonSnd.fadeOut(.25, 0);
   }
 
+  public override function toCharSelect():Void
+  {
+    super.toCharSelect();
+    if (this.cartoonSnd != null)
+        this.cartoonSnd.fadeOut(.25, 0);
+  }
+
   public override function destroy():Void
   {
     super.destroy();
