@@ -1,0 +1,152 @@
+[
+  {
+    "name": "Naughtyness",
+    "desc": "If enabled, raunchy content (such as swearing, etc.) will be displayed.",
+    "defaultValue": true,
+
+    "saveId": "naughtyness",
+    "script": "NaughtynessPreference",
+    "type": "checkbox"
+  },
+  {
+    "name": "Downscroll",
+    "desc": "If enabled, this will make the notes move downwards.",
+    "defaultValue": false,
+
+    "saveId": "downscroll",
+    "script": "DownscrollPreference",
+    "type": "checkbox"
+  },
+  {
+    "name": "Strumline Background",
+    "desc": "Give the strumline a semi-transparent background.",
+    "defaultValue": 0,
+    "min": 0,
+    "max": 100,
+    "saveId": "strumlineBackgroundOpacity",
+    "script": "",
+    "type": "percent"
+  },
+  {
+    "name": "Haptics",
+    "desc": "If enabled, game will use haptic feedback effects.",
+    "defaultValue": "All",
+    "options": {
+      "All": "All",
+      "Notes Only": "NotesOnly",
+      "None": "None"
+    },
+
+    "saveId": "hapticsMode",
+    "script": "hapticsModePreference",
+    "type": "enum"
+  },
+  {
+    "name": "Haptics Intensity",
+    "desc": "Multiplier of intensity for all the haptic feedback effects.",
+    "saveId": "hapticsIntensityMultiplier",
+    "type": "number",
+    "defaultValue": 1,
+    "min": 0.1,
+    "max": 5,
+    "step": 0.1,
+    "precision": 1,
+    "script": "hapticsIntensityMultiplierPreference"
+  },
+  {
+    "name": "Flashing Lights",
+    "desc": "If disabled, it will dampen flashing effects. Useful for people with photosensitive epilepsy.",
+    "defaultValue": true,
+    "saveId": "flashingLights",
+    "type": "checkbox"
+  },
+  {
+    "name": "Camera Zooms",
+    "desc": "If disabled, camera stops bouncing to the song.",
+    "defaultValue": true,
+    "saveId": "zoomCamera",
+    "type": "checkbox"
+  },
+  {
+    "name": "Debug Display",
+    "desc": "If enabled, FPS and other debug stats will be displayed.",
+    "defaultValue": false,
+    "saveId": "debugDisplay",
+    "script": "debugDisplayPreference",
+    "type": "checkbox"
+  },
+  {
+    "name": "Pause on Unfocus",
+    "desc": "If enabled, game automatically pauses when it loses focus.",
+    "defaultValue": true,
+    "saveId": "autoPause",
+    "script": "autoPausePreference",
+    "type": "checkbox"
+  },
+  {
+    "name": "Launch in Fullscreen",
+    "desc": "Automatically launch the game in fullscreen on startup.",
+    "defaultValue": true,
+    "saveId": "autoFullscreen",
+    "script": "autoFullscreenPreference",
+    "type": "checkbox"
+  },
+  {
+    "name": "Unlocked Framerate",
+    "desc": "If enabled, the framerate will be unlocked.",
+    "defaultValue": false,
+    "saveId": "unlockedFramerate",
+    "script": "unlockedFrameratePreference",
+    "type": "checkbox"
+  },
+  {
+    "name": "VSync",
+    "desc": "If enabled, game will attempt to match framerate with your monitor.",
+    "defaultValue": "Off",
+    "options": {
+      "Off": "Off",
+      "On": "On",
+      "Adaptive": "Adaptive"
+    },
+    "saveId": "vsyncMode",
+    "script": "vsyncModePreference",
+    "type": "enum"
+  },
+  {
+    "name": "FPS",
+    "desc": "he maximum framerate that the game targets.",
+    "saveId": "framerate",
+    "type": "number",
+
+    "defaultValue": 60,
+    "min": 30,
+    "max": 500,
+    "step": 5,
+    "precision": 0,
+    "script": "frameratePreference"
+  },
+  {
+    "name": "Hide Mouse",
+    "desc": "If enabled, the mouse will be hidden when taking a screenshot.",
+    "defaultValue": true,
+    "saveId": "shouldHideMouse",
+    "script": "shouldHideMousePreference",
+    "type": "checkbox"
+  },
+  {
+    "name": "Fancy Preview",
+    "desc": "If enabled, a preview will be shown after taking a screenshot.",
+    "defaultValue": true,
+    "saveId": "fancyPreview",
+    "script": "fancyPreviewPreference",
+    "type": "checkbox"
+  },
+  {
+    "name": "Preview on save",
+    "desc": "If enabled, the preview will be shown only after a screenshot is saved.",
+    "defaultValue": true,
+    "saveId": "previewOnSave",
+    "script": "previewOnSavePreference",
+    "type": "checkbox"
+  }
+]

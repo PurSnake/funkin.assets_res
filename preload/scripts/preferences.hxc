@@ -1,0 +1,282 @@
+import flixel.FlxG;
+
+import funkin.Preference;
+import funkin.Preferences;
+import funkin.util.DefineUtil;
+
+import funkin.mobile.input.ControlsHandler;
+
+import funkin.util.WindowUtil;
+//import funkin.util.HapticsMode;
+
+// Doing them all in one file cuz i dont really wanna make them all separated.
+class NaughtynessPreference extends Preference
+{
+  override public function allowThisPreference():Bool
+  {
+    return DefineUtil.isDefined("FEATURE_NAUGHTYNESS");
+  }
+
+  override public function getValue():Dynamic
+  {
+    if (!DefineUtil.isDefined("FEATURE_NAUGHTYNESS"))
+      return false;
+    else
+      return super.getValue();
+  }
+}
+
+class DownscrollPreference extends Preference
+{
+  public function new(data, modded)
+  {
+    if (DefineUtil.isDefined("mobile"))
+      data.defaultValue = true;
+
+    super(data, modded);
+  }
+
+  override public function isAvailable():Bool
+  {
+    if (DefineUtil.isDefined("mobile"))
+      return ControlsHandler.hasExternalInputDevice
+        || Preferences.controlsScheme != 'Arrows';
+
+    return true;
+  }
+
+  override public function getValue():Dynamic
+  {
+    if (DefineUtil.isDefined("mobile"))
+      return (ControlsHandler.hasExternalInputDevice
+        || Preferences.controlsScheme != 'Arrows') && super.getValue();
+    else
+      return super.getValue();
+  }
+}
+
+
+class hapticsModePreference extends Preference
+{
+  override public function allowThisPreference():Bool
+  {
+    return DefineUtil.isDefined("FEATURE_HAPTICS");
+  }
+
+  override public function getValue():Dynamic
+  {
+    return switch(super.getValue())
+    {
+      case "All": 2; //HapticsMode.ALL;
+      case "NotesOnly": 1; //HapticsMode.NOTES_ONLY;
+      case "None": 0; //HapticsMode.NONE;
+      default: 2; //HapticsMode.ALL;
+    }
+  }
+ override  public function getEnumKeyFromValue():String
+  {
+    return switch(getValue())
+    {
+      case 2: "All"; //HapticsMode.ALL;
+      case 1: "Notes Only"; //HapticsMode.NOTES_ONLY;
+      case 0: "None"; //HapticsMode.NONE;
+      default: "All"; //HapticsMode.ALL;
+    }
+  }
+}
+
+class hapticsIntensityMultiplierPreference extends Preference
+{
+  override public function allowThisPreference():Bool
+  {
+    return DefineUtil.isDefined("FEATURE_HAPTICS");
+  }
+}
+
+//Non-mobile
+class debugDisplayPreference extends Preference
+{
+  override public function onInit()
+  {
+    Preferences.toggleDebugDisplay(getValue());
+  }
+
+  override public function updatePreference(newVal:Dynamic)
+  {
+    var value = super.updatePreference(newVal);
+    if (!DefineUtil.isDefined("mobile"))
+      Preferences.toggleDebugDisplay(value);
+    return value;
+  }
+
+  override public function allowThisPreference():Bool
+  {
+    return !DefineUtil.isDefined("mobile");
+  }
+}
+
+class autoPausePreference extends Preference
+{
+  override public function onInit()
+  {
+    FlxG.autoPause = getValue();
+  }
+
+  override public function getValue():Dynamic
+  {
+    if (DefineUtil.isDefined("mobile"))
+      return true;
+    else
+      return super.getValue();
+  }
+
+  override public function updatePreference(newVal:Dynamic)
+  {
+    return FlxG.autoPause = super.updatePreference(newVal);
+  }
+
+  override public function allowThisPreference():Bool
+  {
+    return !DefineUtil.isDefined("mobile");
+  }
+}
+
+class autoFullscreenPreference extends Preference
+{
+  override public function onInit()
+  {
+    if (DefineUtil.isDefined("desktop"))
+          FlxG.fullscreen = getValue();
+  }
+
+  override public function allowThisPreference():Bool
+  {
+    return !DefineUtil.isDefined("mobile");
+  }
+}
+
+class unlockedFrameratePreference extends Preference
+{
+  override public function onInit()
+  {
+    if (DefineUtil.isDefined("web"))
+      Preferences.toggleFramerateCap(getValue());
+  }
+
+  override public function updatePreference(newVal:Dynamic)
+  {
+    var value = super.updatePreference(newVal);
+     if (DefineUtil.isDefined("web"))
+      Preferences.toggleFramerateCap(value);
+    return value;
+  }
+
+  override public function allowThisPreference():Bool
+  {
+    return DefineUtil.isDefined("web");
+  }
+}
+
+class vsyncModePreference extends Preference
+{
+  override public function allowThisPreference():Bool
+  {
+    return !DefineUtil.isDefined("web") && !(DefineUtil.isDefined("mac") || DefineUtil.isDefined("mobile"));
+  }
+
+  override public function onInit()
+  {
+    if (allowThisPreference())
+      WindowUtil.setVSyncMode(getValue());
+  }
+
+  override public function getValue():Dynamic
+  {
+    return switch(super.getValue())
+    {
+      case "Off": 0;
+      case "On": 1;
+      case "Adaptive": -1;
+      default: 0;
+    }
+  }
+
+  override public function getEnumKeyFromValue():Dynamic
+  {
+    return switch(getValue())
+    {
+      case 0: "Off";
+      case 1: "On";
+      case -1: "Adaptive";
+      default: "Off";
+    }
+  }
+
+  override public function updatePreference(newVal:Dynamic)
+  {
+    var value = super.updatePreference(newVal);
+    if (allowThisPreference())
+      WindowUtil.setVSyncMode(getValue());
+    return value;
+  }
+}
+
+class frameratePreference extends Preference
+{
+  override public function allowThisPreference():Bool
+  {
+    return !DefineUtil.isDefined("web") && !DefineUtil.isDefined("mobile");
+  }
+
+  override public function updatePreference(newVal:Dynamic)
+  {
+    if (DefineUtil.isDefined("web"))
+      newVal =  60;
+
+    var value = super.updatePreference(newVal);
+    if (allowThisPreference())
+    {
+      FlxG.updateFramerate = value;
+      FlxG.drawFramerate = value;
+    }
+
+    return value;
+  }
+
+  override public function getValue():Dynamic
+  {
+    if (DefineUtil.isDefined("web"))
+      return 60;
+    else if (DefineUtil.isDefined("mobile"))
+    {
+      var refreshRate:Int = FlxG.stage.window.displayMode.refreshRate;
+      if (refreshRate < 60) refreshRate = 60;
+      return refreshRate;
+    }
+    else
+      return super.getValue();
+  }
+}
+
+class shouldHideMousePreference extends Preference
+{
+  override public function allowThisPreference():Bool
+  {
+    return DefineUtil.isDefined("FEATURE_SCREENSHOTS");
+  }
+}
+class fancyPreviewPreference extends Preference
+{
+  override public function allowThisPreference():Bool
+  {
+    return DefineUtil.isDefined("FEATURE_SCREENSHOTS");
+  }
+}
+
+class previewOnSavePreference extends Preference
+{
+  override public function allowThisPreference():Bool
+  {
+    return DefineUtil.isDefined("FEATURE_SCREENSHOTS");
+  }
+}
