@@ -103,7 +103,7 @@ class PicoCard extends BackingCard
     scrollLower.velocity.x = -110;
     add(scrollLower);
 
-    var bitmap = BitmapUtil.scalePartByWidth(Assets.getBitmapData(Paths.image('freeplay/backingCards/pico/blueBar'), false), FreeplayState.CUTOUT_WIDTH);
+    var bitmap = BitmapUtil.scalePartByWidth(Assets.getBitmapData(Paths.image('freeplay/backingCards/pico/blueBar'), true, false), FreeplayState.CUTOUT_WIDTH);
     blueBar = new FlxSprite(0, 239).loadGraphic(bitmap);
     blueBar.blend = 9;
     blueBar.alpha = 0.4;
