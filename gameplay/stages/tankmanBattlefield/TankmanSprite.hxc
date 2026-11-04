@@ -2,6 +2,7 @@ import funkin.graphics.FunkinSprite;
 import funkin.Conductor;
 import funkin.graphics.shaders.DropShadowShader;
 import flixel.effects.FlxFlicker;
+import funkin.assets.Assets as NewAssets;
 
 /**
  * A sprite which plays the 'run' animation while moving in the specified direction.
@@ -21,6 +22,8 @@ class TankmanSprite extends FunkinSprite
   public function new()
   {
     super();
+
+    NewAssets.cacheAtlas('gameplay/stages/tankmanBattlefield/tankman-killed', 'sparrow');
 
     loadSparrow('gameplay/stages/tankmanBattlefield/tankman-killed');
     animation.addByPrefix('run', 'tankman running', 24, true);

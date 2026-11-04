@@ -28,7 +28,7 @@ class TankmanSpriteGroup extends FlxTypedSpriteGroup
     trace('Initializing TankmanSpriteGroup... ' + (this.isErect ? ' (erect)' : ' (base)'));
 
     // Precache the Tankman sprite.
-    NewAssets.cacheFlxGraphic(NewPaths.image('gameplay/stages/tankmanBattlefield/tankman-killed'));
+    NewAssets.cacheAtlas('gameplay/stages/tankmanBattlefield/tankman-killed', 'sparrow');
   }
 
   function isValid():Bool

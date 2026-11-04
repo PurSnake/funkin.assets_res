@@ -67,10 +67,12 @@ class TwoHOTSong extends Song
         results = results.concat(NewPaths.animateAtlas('gameplay/songs/2hot/spraycan').image());
         results.push(NewPaths.image('gameplay/songs/2hot/graphics/spraycan-explosion-ez'));
         results.push(NewPaths.image('gameplay/songs/2hot/graphics/spraycan-explosion'));
+        results.push(NewPaths.image('gameplay/songs/2hot/graphics/can-impact'));
         results.push(NewPaths.image('gameplay/characters/pico-playable/pico-casing'));
       case 'XML':
         results.push(NewPaths.xml('gameplay/songs/2hot/graphics/spraycan-explosion-ez'));
         results.push(NewPaths.xml('gameplay/songs/2hot/graphics/spraycan-explosion'));
+        results.push(NewPaths.xml('gameplay/songs/2hot/graphics/can-impact'));
         results.push(NewPaths.xml('gameplay/characters/pico-playable/pico-casing'));
     }
 
@@ -493,11 +495,10 @@ class TwoHOTSong extends Song
     hasPlayedCutscene = false;
     cutsceneConductor = null;
 
-    // Precache the assets for the song.
-    NewAssets.cacheFlxGraphic(NewPaths.image('gameplay/songs/2hot/graphics/can-impact'));
-    NewAssets.cacheFlxGraphic(NewPaths.image('gameplay/songs/2hot/graphics/spraycan-explosion'));
-    NewAssets.cacheFlxGraphic(NewPaths.image('gameplay/songs/2hot/graphics/spraycan-explosion-ez'));
-    NewAssets.cacheFlxGraphic(NewPaths.image('gameplay/songs/2hot/spraycan/spritemap1'));
+    NewAssets.cacheAtlas('gameplay/songs/2hot/spraycan', 'animateatlas', {swfMode: true});
+    NewAssets.cacheAtlas('gameplay/songs/2hot/graphics/can-impact', 'sparrow');
+    NewAssets.cacheAtlas('gameplay/songs/2hot/graphics/spraycan-explosion', 'sparrow');
+    NewAssets.cacheAtlas('gameplay/songs/2hot/graphics/spraycan-explosion-ez', 'sparrow');
   }
 
   override function onPause(event:PauseScriptEvent)
